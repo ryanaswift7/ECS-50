@@ -1,0 +1,4 @@
+gcc -m32 callmaxofthree32.c maxofthree32as.s -o mxot32
+gcc -m32 callminofthree32.c minofthree32as.s -o miot32
+gcc -m32 callmaxmindiffofthreereg32.c maxmindiffofthreereg32as.s -o mmdotreg32
+gcc -m32 callMaxMinDiffOfThree32.c maxmindiffofthree32as.s maxofthree32as.s minofthree32as.s -o mmdot32

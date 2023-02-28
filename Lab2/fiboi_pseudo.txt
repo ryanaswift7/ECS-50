@@ -1,0 +1,14 @@
+# need to allocate registers for counter (i.e. param n) and for each of 2 prev nums
+# if SF set, n<0 => invalid n, return -1
+# if OF set => too big to compute, return -1
+# initialize prev=0, current=1 (current should be eax)
+# initialize counter=n
+# if ZF set => n=0, ret (make sure 1 is in eax)
+# 
+# add prev to current, store sum in prev
+# swap prev and current (old current -> prev, sum -> current)
+# consider making a subroutine for swap
+# if OF set (newest value should be in eax, which is where OF looks?) => can't be computed in 32 signed bits, ret -1
+# dec counter
+# if ZF set => current is the nth value, ret
+# else, start process over

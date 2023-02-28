@@ -1,7 +1,7 @@
-.global fibor
+.global fibonacci
 .text
 
-fibor:
+fibonacci:
 	pushl %ebp			# setup stack frame
 	movl %esp, %ebp
 
@@ -27,7 +27,7 @@ fibor:
 	# calculate f(n-1) and store in ecx
 	decl %edi
 	pushl %edi
-	call fibor
+	call fibonacci
 	popl %edi
 
 	# if edi=-1, there's an overflow and we need to pass it up the recursion
@@ -41,7 +41,7 @@ fibor:
 	# calculate f(n-2), automatically returns to eax
 	decl %edi
 	pushl %edi
-	call fibor
+	call fibonacci
 	popl %edi
 
 	# if edi=-1, there's an overflow and we need to pass it up the recursion
@@ -76,6 +76,7 @@ OF_error:
 	movl $-1, %eax
 	popl %ebp
 	ret
+
 
 
 
